@@ -18,7 +18,7 @@ return new class extends Migration
                 ->nullable()
                 ->comment("Mã loại");
 
-            $table->string("stg_names", 150)
+            $table->string("ctg_names", 150)
                 ->nullable()
                 ->comment("Tên loại");
 
