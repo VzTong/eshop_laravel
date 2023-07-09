@@ -24,9 +24,9 @@ return new class extends Migration
                 ->nullable()
                 ->comment("Trọng lượng sản phẩm");
 
-            $table->string("prd_cental", 10)
+            $table->unsignedTinyInteger("id_prd_cental", 5)
                 ->nullable()
-                ->comment("Đơn vị trọng lượng sp");
+                ->comment("ID Đơn vị trọng lượng sp");
 
             $table->unsignedFloat("prd_original_price")
                 ->default("0")
@@ -48,15 +48,13 @@ return new class extends Migration
 
             $table->unique(["prd_names"]);
 
-            $table->foreign('prd_cental')
-                ->references('prd_cental')
-                                        ->on('cental')
+            $table->foreign('id_prd_cental')
+                ->references('id')->on('cental')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
 
             $table->foreign('prd_code')
-                ->references('ctg_code')
-                                        ->on('category')
+                ->references('ctg_code')->on('category')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
 
@@ -64,9 +62,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');
