@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cental extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "centals_name"
+    ];
 }
