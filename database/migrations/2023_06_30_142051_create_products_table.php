@@ -24,8 +24,9 @@ return new class extends Migration
                 ->nullable()
                 ->comment("Trọng lượng sản phẩm");
 
-            $table->unsignedTinyInteger("id_prd_cental", 5)
+            $table->bigInteger("id_cental", 5)
                 ->nullable()
+                ->index("idx_products_id_cental")
                 ->comment("ID Đơn vị trọng lượng sp");
 
             $table->unsignedFloat("prd_original_price")
@@ -47,11 +48,6 @@ return new class extends Migration
                 ->comment("Ảnh sp");
 
             $table->unique(["prd_names"]);
-
-            $table->foreign('id_prd_cental')
-                ->references('id')->on('cental')
-                ->onDelete('CASCADE')
-                ->onUpdate('CASCADE');
 
             $table->foreign('prd_code')
                 ->references('ctg_code')->on('category')
