@@ -6,13 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
+
             $table->id();
 
             $table->string("prd_code", 5)
-                ->nullable()
                 ->comment("Mã sản phẩm");
 
             $table->string("prd_names", 200)
@@ -24,8 +27,7 @@ return new class extends Migration
                 ->nullable()
                 ->comment("Trọng lượng sản phẩm");
 
-            $table->bigInteger("id_cental", 5)
-                ->nullable()
+            $table->bigInteger("id_cental")
                 ->index("idx_products_id_cental")
                 ->comment("ID Đơn vị trọng lượng sp");
 
@@ -50,7 +52,7 @@ return new class extends Migration
             $table->unique(["prd_names"]);
 
             $table->foreign('prd_code')
-                ->references('ctg_code')->on('category')
+                ->references('ctg_code')->on('categories')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
 
@@ -58,6 +60,9 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('products');
