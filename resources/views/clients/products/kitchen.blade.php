@@ -29,7 +29,7 @@
             </div>
 
             <div class="row">
-                @foreach ($Special_Offer as $item)
+                @foreach ($kitchen as $item)
                     <div class="col-md-3">
                         <div class="col-m">
                             <a href="#" class="offer-img">
@@ -76,7 +76,7 @@
         </div>
     </div>
 </div>
-{{ $Special_Offer->links() }}
+{{ $kitchen->links() }}
 
     <!--content-->
     <div class="content-mid">
@@ -84,7 +84,7 @@
 
             <div class="col-md-4 m-w3ls">
                 <div class="col-md1 ">
-                    <a href="kitchen.php">
+                    <a href="{{ route('products.kitchen') }}">
                         <img src="{{ URL::to('frontend/images/co1.jpg') }}" class="img-responsive img" alt="">
                         <div class="big-sa">
                             <h6>New Collections</h6>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-4 m-w3ls1">
                 <div class="col-md ">
-                    <a href="hold.php">
+                    <a href="{{ route('products.household') }}">
                         <img src="{{ URL::to('frontend/images/co.jpg') }}" class="img-responsive img" alt="">
                         <div class="big-sale">
                             <div class="big-sale1">
@@ -109,7 +109,7 @@
             </div>
             <div class="col-md-4 m-w3ls">
                 <div class="col-md2 ">
-                    <a href="kitchen.php">
+                    <a href="{{ route('products.kitchen') }}">
                         <img src="{{ URL::to('frontend/images/co2.jpg') }}" class="img-responsive img1" alt="">
                         <div class="big-sale2">
                             <h3>Cooking <span>Oil</span></h3>
@@ -118,7 +118,7 @@
                     </a>
                 </div>
                 <div class="col-md3 ">
-                    <a href="hold.php">
+                    <a href="{{ route('products.household') }}">
                         <img src="{{ URL::to('frontend/images/co3.jpg') }}" class="img-responsive img1" alt="">
                         <div class="big-sale3">
                             <h3>Vegeta<span>bles</span></h3>
@@ -165,7 +165,7 @@
     <!-- view -->
 
     <!-- product 1-->
-    @foreach ($Special_Offer as $item)
+    @foreach ($kitchen as $item)
         <div class="modal fade" id="myModal{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">

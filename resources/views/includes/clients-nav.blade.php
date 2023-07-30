@@ -82,11 +82,11 @@
                     <ul class="nav navbar-nav ">
                         <li class="active"><a href="{{ route('home') }}" class="hyper "><span>Home</span></a></li>
 
-                        <li class=""><a href="index" class="hyper "><span>Kitchen</span></a></li>
+                        <li class=""><a href="{{ route('products.kitchen') }}" class="hyper "><span>Kitchen</span></a></li>
 
-                        <li class=""><a href="index" class="hyper "><span>Personal Care</span></a></li>
+                        <li class=""><a href="{{ route('products.personal_Care') }}" class="hyper "><span>Personal Care</span></a></li>
 
-                        <li class=""><a href="index" class="hyper "><span>Household</span></a></li>
+                        <li class=""><a href="{{ route('products.household') }}" class="hyper "><span>Household</span></a></li>
                     </ul>
                 </div>
             </nav>

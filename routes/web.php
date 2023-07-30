@@ -59,4 +59,7 @@ Route::prefix('/account')->name("account.")->group(function(){
 Route::prefix('/products')->name("products.")->group(function(){
     Route::get('/{id}/details', [ProductsController::class, "detailsClient"])->name("detailsClient");
     Route::get('/special-offers', [ProductsController::class, "special_offers"])->name("special_offers");
+    Route::get('/kitchen', [ProductsController::class, "kitchen"])->name("kitchen");
+    Route::get('/personal-Care', [ProductsController::class, "personal_Care"])->name("personal_Care");
+    Route::get('/household', [ProductsController::class, "household"])->name("household");
 });

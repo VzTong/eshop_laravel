@@ -12,15 +12,15 @@
         <h3>Menu</h3>
         <ul>
           <li><a href="{{ route('home') }}">Home</a></li>
-          <li><a href="kitchen.php">Kitchen</a></li>
-          <li><a href="care.php">Personal Care</a></li>
-          <li><a href="hold.php">Household</a></li>
+          <li><a href="{{ route('products.kitchen') }}">Kitchen</a></li>
+          <li><a href="{{ route('products.personal_Care') }}">Personal Care</a></li>
+          <li><a href="{{ route('products.household') }}">Household</a></li>
         </ul>
       </div>
       <div class="col-md-3 footer-grid ">
         <h3>Customer Services</h3>
         <ul>
-          <li><a href="shipping.php">Shipping</a></li>
+          <li><a href="shipping">Shipping</a></li>
         </ul>
       </div>
       <div class="col-md-3 footer-grid">
