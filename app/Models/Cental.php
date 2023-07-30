@@ -12,4 +12,6 @@ class Cental extends Model
     protected $fillable = [
         "centals_name"
     ];
+
+    protected $table = 'centals';
 }

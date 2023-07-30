@@ -14,6 +14,8 @@ class Category extends Model
         "ctg_names"
     ];
 
+    protected $table = 'categories';
+
     public function products()
     {
         return $this->hasMany(Products::class, "prd_code", "ctg_code");

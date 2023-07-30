@@ -17,7 +17,7 @@ class Authenticate extends Middleware
         if(!Auth::check()){
             $request->session()
                     ->flash('_err_msg', 'Đăng nhập để sử dụng chức năng này');
-            return route('account.login');
+            return route('admin.account.login');
         }
     }
 }

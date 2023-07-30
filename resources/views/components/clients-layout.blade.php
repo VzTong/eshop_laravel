@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $attributes['title'] ?? 'Eshop Laravel' }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/Font-Face-Noto_San.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/Font-Face2-Noto_San.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/jstarbox.css') }}">
     {{ $css ?? '' }}
 </head>
 
@@ -20,7 +27,7 @@
         @include('includes/clients-nav')
     </header>
 
-    <div class="container">
+    <main>
 
         @if (!empty(session('_success_msg')))
             <div class=" mt-2 alert alert-info alert-dismissible fade show" role="alert">
@@ -36,8 +43,15 @@
             </div>
         @endif
 
+        @if (!empty(session('_err_msg')))
+            <div class=" mt-2 alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('_err_msg') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         {{ $slot }}
-    </div>
+    </main>
 
     <footer>
         @include('includes/clients-footer')
@@ -46,11 +60,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-
-    <script src="{{ asset('/js/bootstrap.js') }}"></script>
-
-    <script type='text/javascript' src="{{ asset('/js/jquery.mycart.js') }}"></script>
-
 
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -127,6 +136,19 @@
         });
     </script>
 
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="{{ asset('frontend/js/app.js') }}"></script>
+    <script src="{{ asset('frontend/js/easyResponsiveTabs.js') }}"></script>
+    <script src="{{ asset('frontend/js/easing.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.vide.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jstarbox.js') }}"></script>
+    <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
+    <script src="{{ asset('frontend/js/move-top.js') }}"></script>
+    <script type='text/javascript' src="{{ asset('frontend/js/jquery.mycart.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.zoomtoo.js') }}"></script>
     {{ $js ?? '' }}
 </body>
 

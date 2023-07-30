@@ -30,7 +30,11 @@ return [
         "name" => "Tên",
         "password" => "Mật khẩu",
         "cf_password" => "Xác nhận mật khẩu",
-        "email" => "Email"
+        "email" => "Email",
+        "ad_phone" => "Số điện thoại của Admin",
+        "ad_email" => "Email của Admin",
+        "usr_email" => "Email của người dùng",
+        "usr_phone" => "Số điện thoại của người dùng"
     ],
 
 ];

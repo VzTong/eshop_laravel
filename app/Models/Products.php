@@ -26,6 +26,8 @@ class Products extends Model
         return $this->belongsTo(Category::class, "prd_code", "ctg_code");
     }
 
+    protected $table = 'products';
+
     public function cental() : BelongsTo
     {
         return $this->belongsTo(Cental::class, "id_cental", "id");

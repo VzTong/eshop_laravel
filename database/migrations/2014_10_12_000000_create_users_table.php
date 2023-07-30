@@ -13,11 +13,26 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+
+            $table->string('name')
+                ->comment('Tên người dùng');
+
+            $table->string('usr_phone')
+                ->comment('SĐT người dùng');
+
+            $table->string('usr_email')
+                ->unique()
+                ->comment('Email người dùng');
+
+            $table->timestamp('usr_email_verified_at')
+                ->nullable()
+                ->comment('Thời điểm xác nhận email ng dùng');
+
+            $table->string('password')
+                ->comment('Mật khẩu ng dùng');
+
             $table->rememberToken();
+
             $table->timestamps();
         });
     }

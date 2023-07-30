@@ -1,17 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+// use Session;
 
-class AccountController extends Controller
+session_start();
+
+class AdminAccountController extends Controller
 {
     public function register()
     {
-        return view("clients.account.usr_register");
+        return view("admin.account.ad_register");
     }
 
     public function save(Request $request)
@@ -20,41 +26,40 @@ class AccountController extends Controller
         $data = $request->all();
         unset($data["_token"]);
         unset($data["cf_password"]);
-        $data["password"] = Hash::make($data["password"]);
 
-        $user = new User($data);
-        $user->save();
+        $data["password"] = Hash::make($data["password"]);
+        $admin = new Admin($data);
+        $admin->save();
         return redirect()
-            ->to('account/login');
+            ->to("/admin/account/login");
     }
 
     public function login()
     {
-        return view("clients.account.usr_login");
+        return view("admin.account.ad_login");
     }
 
     public function auth(Request $request)
     {
         $data = $request->all();
         unset($data["_token"]);
-        unset($data['usr_phone']);
-        unset($data['usr_email']);
+        unset($data['ad_phone']);
 
-        if (Auth::guard('web')->attempt($data)) {
+        if (Auth::guard("webAd")->attempt($data)) {
             return redirect()
-                ->to('/')
+                ->to('/admin')
                 ->with("_success_msg", "Đăng nhập thành công");
         } else {
             return redirect()
-                ->to('/')
-                ->with("_destroy_msg", "Tên đăng nhập hoặc mật khẩu không hợp lệ");
+                ->to('/admin')
+                ->with("_destroy_msg", "Email hoặc mật khẩu không hợp lệ");
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->to('/');
+        return redirect()->to('/admin');
     }
 
     private function customValidate(Request $request)
@@ -62,15 +67,15 @@ class AccountController extends Controller
         $rules = [
             "name" => ["required", "min:4"],
 
-            "usr_phone" => [
+            "ad_phone" => [
                 "required",
                 "min:10",
                 "max:14"
             ],
 
-            "usr_email" => [
+            "ad_email" => [
                 "required",
-                "unique:users,usr_email"
+                "unique:admins,ad_email"
             ],
 
             "password" => [
