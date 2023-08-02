@@ -775,6 +775,8 @@ ul.nav.tabs {
 
 .add {
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 .col-m {
@@ -841,6 +843,16 @@ div#my-cart-empty-message {
     padding: 0.5em 1em;
     outline: none;
 }
+.my-cart-a {
+    background: none;
+    text-decoration: none;
+    color: #c70909;
+    font-size: 1em;
+    border: 2px solid #c70909;
+    border-radius: 50px;
+    padding: 0.5em 1em;
+    outline: none;
+}
 
 a:focus {
     outline: thin dotted;
@@ -850,6 +862,21 @@ a:focus {
 
 /* Sweep To Bottom */
 .my-cart-b {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.my-cart-a {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: translateZ(0);
@@ -887,6 +914,28 @@ a:focus {
     border-radius: 50px;
     border: 2px solid #039445;
 }
+.my-cart-a:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #c70909;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    border-radius: 800px;
+    border: 2px solid #c70909;
+}
 
 .my-cart-b:hover,
 .my-cart-b:focus,
@@ -897,9 +946,25 @@ a:focus {
     outline: none !important;
 }
 
+.my-cart-a:hover,
+.my-cart-a:focus,
+.my-cart-a:active {
+    color: white;
+    background: none;
+    border: 2px solid #c70909;
+    outline: none !important;
+}
+
 .my-cart-b:hover:before,
 .my-cart-b:focus:before,
 .my-cart-b:active:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.my-cart-a:hover:before,
+.my-cart-a:focus:before,
+.my-cart-a:active:before {
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
 }

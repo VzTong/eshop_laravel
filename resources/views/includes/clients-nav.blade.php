@@ -10,6 +10,7 @@
 
         <div class="head-t">
             <ul class="card">
+                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
                 @if (Auth::check())
                     <li class="nav-item">
                         <a href="">

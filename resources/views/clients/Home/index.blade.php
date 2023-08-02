@@ -45,7 +45,7 @@
                                     <div class="col-m">
                                         <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
                                             class="offer-img">
-                                            <img src="{{ URL::to('/frontend/'.$item->prd_cover) }}"
+                                            <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}"
                                                 class="img-responsive" alt="">
                                             <div class="offer">
                                                 <p><span>Offer</span></p>
@@ -54,25 +54,41 @@
                                         <div class="mid-1">
 
                                             <div class="women">
-                                                <h6><a href="{{ route('products.detailsClient', ["id" => $item->id]) }}"> {{ $item->prd_names }}</a>
+                                                <h6><a
+                                                        href="{{ route('products.detailsClient', ['id' => $item->id]) }}">
+                                                        {{ $item->prd_names }}
+                                                    </a>
                                                     ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
                                                 </h6>
                                             </div>
                                             <div class="mid-2">
-                                                <p><label>${{ number_format($item->prd_original_price) }}</label><em
-                                                        class="item_price">
-                                                        ${{ number_format($item->prd_selling_price) }}</em></p>
+                                                <p>
+                                                    <label>
+                                                        ${{ number_format($item->prd_original_price) }}
+                                                    </label>
+                                                    <em class="item_price">
+                                                        ${{ number_format($item->prd_selling_price) }}
+                                                    </em>
+                                                </p>
                                                 <div class="block">
                                                     <div class="starbox small ghosting"> </div>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
+                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-danger my-cart-btn my-cart-a"
+                                                        type="submit"><i class="fa-regular fa-heart"></i></button>
+                                                </form>
+
                                                 <button class="btn btn-danger my-cart-btn my-cart-b"
                                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                                     data-summary="summary {{ $item->id }}"
                                                     data-price="{{ $item->prd_selling_price }}" data-quantity="1"
-                                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to Cart
+                                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">
+                                                    Add to Cart
                                                 </button>
                                             </div>
                                         </div>
@@ -89,45 +105,54 @@
 
                     <div class="tab-pane text-style" id="tab2">
                         <div class="con-w3l">
-                          @foreach ($Kitchen as $item)
-                          <div class="col-md-3 m-wthree">
-                              <div class="col-m">
-                                  <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
-                                      class="offer-img">
-                                      <img src="{{ URL::to('/frontend/'.$item->prd_cover) }}"
-                                          class="img-responsive" alt="">
-                                      <div class="offer">
-                                          <p><span>Offer</span></p>
-                                      </div>
-                                  </a>
-                                  <div class="mid-1">
+                            @foreach ($Kitchen as $item)
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
+                                            class="offer-img">
+                                            <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}"
+                                                class="img-responsive" alt="">
+                                            <div class="offer">
+                                                <p><span>Offer</span></p>
+                                            </div>
+                                        </a>
+                                        <div class="mid-1">
 
-                                      <div class="women">
-                                          <h6><a href="{{ route('products.detailsClient', ["id" => $item->id]) }}"> {{ $item->prd_names }}</a>
-                                              ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
-                                          </h6>
-                                      </div>
-                                      <div class="mid-2">
-                                          <p><label>${{ number_format($item->prd_original_price) }}</label><em
-                                                  class="item_price">
-                                                  ${{ number_format($item->prd_selling_price) }}</em></p>
-                                          <div class="block">
-                                              <div class="starbox small ghosting"> </div>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                      </div>
-                                      <div class="add">
-                                          <button class="btn btn-danger my-cart-btn my-cart-b"
-                                              data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
-                                              data-summary="summary {{ $item->id }}"
-                                              data-price="{{ $item->prd_selling_price }}" data-quantity="1"
-                                              data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to Cart
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      @endforeach
+                                            <div class="women">
+                                                <h6><a
+                                                        href="{{ route('products.detailsClient', ['id' => $item->id]) }}">
+                                                        {{ $item->prd_names }}</a>
+                                                    ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
+                                                </h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p><label>${{ number_format($item->prd_original_price) }}</label><em
+                                                        class="item_price">
+                                                        ${{ number_format($item->prd_selling_price) }}</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-danger my-cart-btn my-cart-a"
+                                                        type="submit"><i class="fa-regular fa-heart"></i></button>
+                                                </form>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b"
+                                                    data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
+                                                    data-summary="summary {{ $item->id }}"
+                                                    data-price="{{ $item->prd_selling_price }}" data-quantity="1"
+                                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to
+                                                    Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
                             <div class="clearfix"></div>
                         </div>
@@ -137,45 +162,54 @@
                     <div class="tab-pane text-style" id="tab3">
                         <div class="con-w3l">
 
-                          @foreach ($Personal_Care as $item)
-                          <div class="col-md-3 m-wthree">
-                              <div class="col-m">
-                                  <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
-                                      class="offer-img">
-                                      <img src="{{ URL::to('/frontend/'.$item->prd_cover) }}"
-                                          class="img-responsive" alt="">
-                                      <div class="offer">
-                                          <p><span>Offer</span></p>
-                                      </div>
-                                  </a>
-                                  <div class="mid-1">
+                            @foreach ($Personal_Care as $item)
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal"
+                                            data-target="#myModal{{ $item->id }}" class="offer-img">
+                                            <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}"
+                                                class="img-responsive" alt="">
+                                            <div class="offer">
+                                                <p><span>Offer</span></p>
+                                            </div>
+                                        </a>
+                                        <div class="mid-1">
 
-                                      <div class="women">
-                                          <h6><a href="{{ route('products.detailsClient', ["id" => $item->id]) }}"> {{ $item->prd_names }}</a>
-                                              ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
-                                          </h6>
-                                      </div>
-                                      <div class="mid-2">
-                                          <p><label>${{ number_format($item->prd_original_price) }}</label><em
-                                                  class="item_price">
-                                                  ${{ number_format($item->prd_selling_price) }}</em></p>
-                                          <div class="block">
-                                              <div class="starbox small ghosting"> </div>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                      </div>
-                                      <div class="add">
-                                          <button class="btn btn-danger my-cart-btn my-cart-b"
-                                              data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
-                                              data-summary="summary {{ $item->id }}"
-                                              data-price="{{ $item->prd_selling_price }}" data-quantity="1"
-                                              data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to Cart
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      @endforeach
+                                            <div class="women">
+                                                <h6><a
+                                                        href="{{ route('products.detailsClient', ['id' => $item->id]) }}">
+                                                        {{ $item->prd_names }}</a>
+                                                    ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
+                                                </h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p><label>${{ number_format($item->prd_original_price) }}</label><em
+                                                        class="item_price">
+                                                        ${{ number_format($item->prd_selling_price) }}</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-danger my-cart-btn my-cart-a"
+                                                        type="submit"><i class="fa-regular fa-heart"></i></button>
+                                                </form>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b"
+                                                    data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
+                                                    data-summary="summary {{ $item->id }}"
+                                                    data-price="{{ $item->prd_selling_price }}" data-quantity="1"
+                                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to
+                                                    Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
                             <div class="clearfix"></div>
                         </div>
@@ -186,45 +220,54 @@
                     <div class="tab-pane text-style" id="tab4">
                         <div class=" con-w3l">
 
-                          @foreach ($Household as $item)
-                          <div class="col-md-3 m-wthree">
-                              <div class="col-m">
-                                  <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
-                                      class="offer-img">
-                                      <img src="{{ URL::to('/frontend/'.$item->prd_cover) }}"
-                                          class="img-responsive" alt="">
-                                      <div class="offer">
-                                          <p><span>Offer</span></p>
-                                      </div>
-                                  </a>
-                                  <div class="mid-1">
+                            @foreach ($Household as $item)
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal"
+                                            data-target="#myModal{{ $item->id }}" class="offer-img">
+                                            <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}"
+                                                class="img-responsive" alt="">
+                                            <div class="offer">
+                                                <p><span>Offer</span></p>
+                                            </div>
+                                        </a>
+                                        <div class="mid-1">
 
-                                      <div class="women">
-                                          <h6><a href="{{ route('products.detailsClient', ["id" => $item->id]) }}"> {{ $item->prd_names }}</a>
-                                              ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
-                                          </h6>
-                                      </div>
-                                      <div class="mid-2">
-                                          <p><label>${{ number_format($item->prd_original_price) }}</label><em
-                                                  class="item_price">
-                                                  ${{ number_format($item->prd_selling_price) }}</em></p>
-                                          <div class="block">
-                                              <div class="starbox small ghosting"> </div>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                      </div>
-                                      <div class="add">
-                                          <button class="btn btn-danger my-cart-btn my-cart-b"
-                                              data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
-                                              data-summary="summary {{ $item->id }}"
-                                              data-price="{{ $item->prd_selling_price }}" data-quantity="1"
-                                              data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to Cart
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      @endforeach
+                                            <div class="women">
+                                                <h6><a
+                                                        href="{{ route('products.detailsClient', ['id' => $item->id]) }}">
+                                                        {{ $item->prd_names }}</a>
+                                                    ({{ $item->prd_heft }} {{ $item->centals->centals_name ?? '' }})
+                                                </h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p><label>${{ number_format($item->prd_original_price) }}</label><em
+                                                        class="item_price">
+                                                        ${{ number_format($item->prd_selling_price) }}</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-danger my-cart-btn my-cart-a"
+                                                        type="submit"><i class="fa-regular fa-heart"></i></button>
+                                                </form>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b"
+                                                    data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
+                                                    data-summary="summary {{ $item->id }}"
+                                                    data-price="{{ $item->prd_selling_price }}" data-quantity="1"
+                                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to
+                                                    Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
                             <div class="clearfix"></div>
                         </div>
@@ -244,7 +287,8 @@
             <div class="col-md-4 m-w3ls">
                 <div class="col-md1 ">
                     <a href="kitchen.php">
-                        <img src="{{ URL::to('frontend/images/co1.jpg') }}" class="img-responsive img" alt="">
+                        <img src="{{ URL::to('frontend/images/co1.jpg') }}" class="img-responsive img"
+                            alt="">
                         <div class="big-sa">
                             <h6>New Collections</h6>
                             <h3>Season<span>ing </span></h3>
@@ -256,7 +300,8 @@
             <div class="col-md-4 m-w3ls1">
                 <div class="col-md ">
                     <a href="hold.php">
-                        <img src="{{ URL::to('frontend/images/co.jpg') }}" class="img-responsive img" alt="">
+                        <img src="{{ URL::to('frontend/images/co.jpg') }}" class="img-responsive img"
+                            alt="">
                         <div class="big-sale">
                             <div class="big-sale1">
                                 <h3>Big <span>Sale</span></h3>
@@ -269,7 +314,8 @@
             <div class="col-md-4 m-w3ls">
                 <div class="col-md2 ">
                     <a href="kitchen.php">
-                        <img src="{{ URL::to('frontend/images/co2.jpg') }}" class="img-responsive img1" alt="">
+                        <img src="{{ URL::to('frontend/images/co2.jpg') }}" class="img-responsive img1"
+                            alt="">
                         <div class="big-sale2">
                             <h3>Cooking <span>Oil</span></h3>
                             <p>It is a long established fact that a reader </p>
@@ -337,7 +383,8 @@
                     <div class="modal-body modal-spa">
                         <div class="col-md-5 span-2">
                             <div class="item">
-                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive" alt="">
+                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive"
+                                    alt="">
                             </div>
                         </div>
                         <div class="col-md-7 span-1 ">
@@ -353,6 +400,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
+                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
+                                            class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
@@ -379,7 +431,8 @@
                     <div class="modal-body modal-spa">
                         <div class="col-md-5 span-2">
                             <div class="item">
-                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive" alt="">
+                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive"
+                                    alt="">
                             </div>
                         </div>
                         <div class="col-md-7 span-1 ">
@@ -395,6 +448,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
+                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
+                                            class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
@@ -421,7 +479,8 @@
                     <div class="modal-body modal-spa">
                         <div class="col-md-5 span-2">
                             <div class="item">
-                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive" alt="">
+                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive"
+                                    alt="">
                             </div>
                         </div>
                         <div class="col-md-7 span-1 ">
@@ -437,10 +496,16 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
+                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
+                                            class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
-                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">Add to Cart</button>
+                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">
+                                    Add to Cart</button>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
@@ -463,7 +528,8 @@
                     <div class="modal-body modal-spa">
                         <div class="col-md-5 span-2">
                             <div class="item">
-                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive" alt="">
+                                <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive"
+                                    alt="">
                             </div>
                         </div>
                         <div class="col-md-7 span-1 ">
@@ -471,7 +537,9 @@
                                 {{ $item->centals->centals_name ?? '' }})</h3>
                             <p class="in-para"> Small product detail table.</p>
                             <div class="price_single">
-                                <span class="reducedfrom "><del>${{ number_format($item->prd_original_price) }} </del>
+                                <span class="reducedfrom ">
+                                    <del>${{ number_format($item->prd_original_price) }}
+                                    </del>
                                     ${{ number_format($item->prd_selling_price) }}</span>
 
                                 <div class="clearfix"></div>
@@ -479,10 +547,16 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
+                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit">
+                                        <i class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
-                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">Add to Cart</button>
+                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">
+                                    Add to Cart</button>
                             </div>
                         </div>
                         <div class="clearfix"> </div>

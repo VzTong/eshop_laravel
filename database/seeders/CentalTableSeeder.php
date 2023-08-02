@@ -27,7 +27,6 @@ class CentalTableSeeder extends Seeder
 
             ]);
         }
-        // DB::table('centals')->insert($list);
         DB::table("centals")->insert($list);
     }
 }

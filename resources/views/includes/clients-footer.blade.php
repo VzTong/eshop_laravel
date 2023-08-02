@@ -20,6 +20,7 @@
       <div class="col-md-3 footer-grid ">
         <h3>Customer Services</h3>
         <ul>
+          <li><a href="wishlist"><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
           <li><a href="shipping">Shipping</a></li>
         </ul>
       </div>

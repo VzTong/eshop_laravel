@@ -25,7 +25,8 @@ class AccountController extends Controller
         $user = new User($data);
         $user->save();
         return redirect()
-            ->to('account/login');
+            ->to('account/login')
+            ->with("_success_msg", "Đăng ký thành công");
     }
 
     public function login()

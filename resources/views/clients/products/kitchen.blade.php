@@ -1,16 +1,11 @@
 <x-clients-layout>
-    <div data-vide-bg="{{ url('frontend/video/video') }}">
+
+    <!--banner-->
+    <div class="banner-top">
         <div class="container">
-            <div class="banner-info">
-                <h3>It is a long established fact that a reader will be distracted by
-                    the readable</h3>
-                <div class="search-form">
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Search..." name="Search...">
-                        <input type="submit" value=" ">
-                    </form>
-                </div>
-            </div>
+            <h3>Admin login</h3>
+            <h4><a href="{{ route('ad_home') }}">Home</a><label>/</label>Admin login</h4>
+            <div class="clearfix"> </div>
         </div>
     </div>
 
@@ -20,7 +15,7 @@
     <div class="content-top">
         <div class="container">
             <div class="spec ">
-                <h3>All Products Special Offer</h3>
+                <h3>All Products Kitchen</h3>
                 <div class="ser-t">
                     <b></b>
                     <span><i></i></span>
@@ -28,16 +23,14 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="con-w3l agileinf">
                 @foreach ($kitchen as $item)
-                    <div class="col-md-3">
+                    <div class="col-md-3 pro-1">
                         <div class="col-m">
-                            <a href="#" class="offer-img">
+                            <a href="#" data-toggle="modal" data-target="#myModal{{ $item->id }}"
+                                class="offer-img">
                                 <img src="{{ URL::to('/frontend/' . $item->prd_cover) }}" class="img-responsive"
                                     alt="">
-                                <div class="offer">
-                                    <p><span>Offer</span></p>
-                                </div>
                             </a>
                             <div class="mid-1">
                                 <div class="women">
@@ -47,20 +40,27 @@
                                     </h6>
                                 </div>
                                 <div class="mid-2">
-                                    <p><label>${{ number_format($item->prd_original_price) }}</label><em
-                                            class="item_price">
-                                            ${{ number_format($item->prd_selling_price) }}</em></p>
+                                    <p><label>${{ number_format($item->prd_original_price) }}</label>
+                                        <em class="item_price">
+                                            ${{ number_format($item->prd_selling_price) }}</em>
+                                    </p>
                                     <div class="block">
                                         <div class="starbox small ghosting"> </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="add">
+                                    <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                        @csrf
+                                        <button class="btn btn-danger my-cart-btn my-cart-a" type="submit"><i
+                                                class="fa-regular fa-heart"></i></button>
+                                    </form>
+
                                     <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ $item->id }}"
                                         data-name="{{ $item->prd_names }}" data-summary="summary {{ $item->id }}"
                                         data-price="{{ $item->prd_selling_price }}" data-quantity="1"
-                                        data-image="{{ url('/frontend/' . $item->prd_cover) }}"> Add to
-                                        Cart
+                                        data-image="{{ url('/frontend/' . $item->prd_cover) }}">
+                                        Add to Cart
                                     </button>
                                 </div>
                             </div>
@@ -75,8 +75,8 @@
 
         </div>
     </div>
-</div>
-{{ $kitchen->links() }}
+    </div>
+    {{-- {{ $kitchen->links() }} --}}
 
     <!--content-->
     <div class="content-mid">
@@ -132,39 +132,8 @@
     </div>
     <!--content-->
 
-
-    <!-- Carousel================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="{{ route('products.kitchen') }}"> <img class="first-slide" src="{{ URL::to('frontend/images/ba.jpg') }}"
-                        alt="First slide"></a>
-
-            </div>
-            <div class="item">
-                <a href="{{ route('products.personal_Care') }}"> <img class="second-slide " src="{{ URL::to('frontend/images/ba1.jpg') }}"
-                        alt="Second slide"></a>
-
-            </div>
-            <div class="item">
-                <a href="{{ route('products.household') }}"><img class="third-slide " src="{{ URL::to('frontend/images/ba2.jpg') }}"
-                        alt="Third slide"></a>
-
-            </div>
-        </div>
-
-    </div><!-- /.carousel -->
-
-
     <!-- view -->
-
-    <!-- product 1-->
+    <!-- product-->
     @foreach ($kitchen as $item)
         <div class="modal fade" id="myModal{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel">
@@ -194,10 +163,16 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
+                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
+                                            class="fa-regular fa-heart"></i></button>
+                                </form>
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
-                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">Add to Cart</button>
+                                    data-image="{{ url('/frontend/' . $item->prd_cover) }}">
+                                    Add to Cart</button>
                             </div>
                         </div>
                         <div class="clearfix"> </div>

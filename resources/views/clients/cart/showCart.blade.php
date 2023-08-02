@@ -1,5 +1,26 @@
 <x-clients-layout>
 
+    @if (!empty(session('_success_msg')))
+        <div class=" mt-2 alert alert-info alert-dismissible fade show" role="alert">
+            {{ session('_success_msg') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if (!empty(session('_destroy_msg')))
+        <div class=" mt-2 alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('_destroy_msg') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if (!empty(session('_err_msg')))
+        <div class=" mt-2 alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('_err_msg') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
 <!--banner-->
 <div class="banner-top">
 	<div class="container">
@@ -21,12 +42,13 @@
 			</div>
 		</div>
 		<div class=" contact-w3">
-			<div class="col-md-5 contact-right">
-				<img src="{{ asset("images/cac.jpg") }}" class="img-responsive" alt="">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d502745.7236969385!2d105.20251891271758!3d10.12354502926173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0629f927382cd%3A0x72a463d91109ec67!2zQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1682072276208!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<div class="col-md-5 contact-right grid">
+				<h4>Cart Information</h4>
+
+                <form action=""></form>
 			</div>
 			<div class="col-md-7 contact-left">
-				<h4>Cart Information</h4>
+
 				{{-- <p> Nemo enim ipsam voluptatem quia voluptas sit aspernatur
 					aut odit aut fugit, sed quia consequuntur magni dolores eos
 					qui ratione voluptatem sequi nesciunt. Neque porro quisquam
@@ -70,6 +92,9 @@
 									</ul>
 								</div>
 							</div> --}}
+                            <div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d502745.7236969385!2d105.20251891271758!3d10.12354502926173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0629f927382cd%3A0x72a463d91109ec67!2zQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1682072276208!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
 						</div>
 					</div>
 				</div>

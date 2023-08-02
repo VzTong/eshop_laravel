@@ -16,7 +16,19 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/Font-Face-Noto_San.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/Font-Face2-Noto_San.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jstarbox.css') }}">
+
+    <!-- start-smoth-scrolling -->
+    <script src="{{ asset('frontend/js/move-top.js') }}"></script>
+    <script src="{{ asset('frontend/js/easing.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
     {{ $css ?? '' }}
 </head>
 
@@ -92,6 +104,9 @@
     </a>
     {{-- //smooth scrolling --}}
 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type='text/javascript' src="{{ asset('frontend/js/jquery.mycart.js') }}"></script>
     <script type="text/javascript">
         $(function() {
 
@@ -137,17 +152,12 @@
     </script>
 
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <script src="{{ asset('frontend/js/app.js') }}"></script>
     <script src="{{ asset('frontend/js/easyResponsiveTabs.js') }}"></script>
-    <script src="{{ asset('frontend/js/easing.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.vide.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jstarbox.js') }}"></script>
     <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
-    <script src="{{ asset('frontend/js/move-top.js') }}"></script>
-    <script type='text/javascript' src="{{ asset('frontend/js/jquery.mycart.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.zoomtoo.js') }}"></script>
     {{ $js ?? '' }}
 </body>

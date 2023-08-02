@@ -31,7 +31,8 @@ class AdminAccountController extends Controller
         $admin = new Admin($data);
         $admin->save();
         return redirect()
-            ->to("/admin/account/login");
+            ->to("/admin/account/login")
+            ->with("_success_msg", "Đăng ký thành công");
     }
 
     public function login()
@@ -51,7 +52,7 @@ class AdminAccountController extends Controller
                 ->with("_success_msg", "Đăng nhập thành công");
         } else {
             return redirect()
-                ->to('/admin')
+                ->to('/admin/account/login')
                 ->with("_destroy_msg", "Email hoặc mật khẩu không hợp lệ");
         }
     }

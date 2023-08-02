@@ -45,9 +45,8 @@ return new class extends Migration
                 ->nullable()
                 ->comment("Thông tin chi tiết sp");
 
-            $table->tinyInteger("prd_status")
-                ->nullable()
-                ->comment("Trạng thái sp # 1-Hết; 2-Còn");
+            $table->unsignedInteger("quantity_prd")
+                ->comment("Số lượng sản phẩm`");
 
             $table->string("prd_cover")
                 ->nullable()

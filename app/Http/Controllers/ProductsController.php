@@ -23,8 +23,7 @@ class ProductsController extends Controller
     public function special_offers(){
         $Special_Offer = DB::table('products')
                                 ->where('prd_code', 'SP04')
-                                ->orderBy('id', 'desc')
-                                ->paginate(4);
+                                ->orderBy('id', 'desc');
         return view("clients.products.special_offers")
                 ->with('Special_Offer', $Special_Offer);
     }
@@ -32,7 +31,7 @@ class ProductsController extends Controller
         $kitchen = DB::table('products')
                                 ->where('prd_code', 'K01')
                                 ->orderBy('id', 'desc')
-                                ->paginate(4);
+                                ->get();
         return view("clients.products.kitchen")
                 ->with('kitchen', $kitchen);
     }
@@ -40,7 +39,7 @@ class ProductsController extends Controller
         $personal_Care = DB::table('products')
                                 ->where('prd_code', 'PC02')
                                 ->orderBy('id', 'desc')
-                                ->paginate(4);
+                                ->get();
         return view("clients.products.personal_Care")
                 ->with('personal_Care', $personal_Care);
     }
@@ -48,7 +47,7 @@ class ProductsController extends Controller
         $household = DB::table('products')
                                 ->where('prd_code', 'H03')
                                 ->orderBy('id', 'desc')
-                                ->paginate(4);
+                                ->get();
         return view("clients.products.household")
                 ->with('household', $household);
     }
