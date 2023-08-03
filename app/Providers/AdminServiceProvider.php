@@ -27,11 +27,11 @@ class AdminServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Auth::viaRequest('ad_email', function ($request) {
-            $email = $request->input('email');
+            $email = $request->input('ad_email');
             $password = $request->input('password');
 
             if ($email && $password) {
-                $admin = Admin::where('email', $email)->first();
+                $admin = Admin::where('ad_email', $email)->first();
 
                 if ($admin && Hash::check($password, $admin->password) && $admin->isAdmin()) {
                     return $admin;

@@ -32,8 +32,6 @@
     <!--login-->
 
     <div class="login">
-
-
         <div class="main-agileits">
             <div class="form-w3agile">
                 <h3>AD Login</h3>
@@ -42,19 +40,17 @@
 
                     <div class="key">
                         <i class="fa-solid fa-user-large"></i>
-                        <input name="ad_email" type="text" value="Your Email" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Your Email';}" required="" />
+                        <x-app-input name="ad_email" type="text" value="Your Email" required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-solid fa-key"></i>
-                        <input name="password" type="password" value="Password" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Password';}" required="" />
+                        <x-app-input name="password" type="password" value="Password" />
                         <div class="clearfix"></div>
                     </div>
 
-                    <input type="submit" class="btn btn-outline-success" value="Login" />
+                    <button type="submit" class="btn btn-outline-success input">Login</button>
                 </form>
             </div>
             <div class="forg">

@@ -41,19 +41,17 @@
 
                     <div class="key">
                         <i class="fa-solid fa-user-large"></i>
-                        <input name="name" type="text" value="Your Username" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Your Username';}" required="" />
+                        <x-app-input name="name" type="text" value="Your Username" required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-solid fa-key"></i>
-                        <input name="password" type="password" value="Password" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Password';}" required="" />
+                        <x-app-input name="password" type="password" value="Password" required="" />
                         <div class="clearfix"></div>
                     </div>
 
-                    <input type="submit" class="btn btn-outline-success" value="Login" />
+                    <button type="submit" class="btn btn-outline-success input">Login</button>
                 </form>
             </div>
             <div class="forg">

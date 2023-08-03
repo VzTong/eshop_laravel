@@ -13,10 +13,11 @@ $value = empty($old_value) ? $value : $old_value;
 
 <div class="mt-3">
     <label class="form-lable">{{ $label }}</label>
-    <input type="{{ $type }}" class="form-control"
+    <input type="{{ $type }}" class="input"
             name="{{ $name }}"
             id="{{ $name }}"
-            value="{{ $value }}" />
+            value="{{ $value }}"
+            onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '{{ $value }}';}"/>
 
     @error($name)
         <span class="text-danger fst-italic">{{ $message }}</span>

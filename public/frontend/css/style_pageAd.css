@@ -63,8 +63,8 @@
     padding: 1em;
 }
 
-.key input[type="text"],
-.key input[type="password"] {
+.key .input[type="text"],
+.key .input[type="password"] {
     width: 89%;
     padding: 10px 10px;
     font-size: 1em;
@@ -99,7 +99,7 @@
     margin-bottom: 1.5em;
 }
 
-.form-w3agile input[type="submit"] {
+.form-w3agile .input[type="submit"] {
     background: #fdb515;
     color: #FFFFFF;
     text-align: center;
@@ -113,7 +113,7 @@
     border-radius: 5px;
 }
 
-.form-w3agile input[type="submit"]:hover {
+.form-w3agile .input[type="submit"]:hover {
     background: #029241;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -141,7 +141,7 @@
     float: right;
 }
 
-.form1 input[type="submit"] {
+.form1 .input[type="submit"] {
     margin-bottom: 0;
     border-radius: 5px;
 }

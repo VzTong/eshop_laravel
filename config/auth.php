@@ -15,8 +15,8 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'guard' => 'webAd',
         'passwords' => 'users',
+        'guard' => 'webAd',
         'passwords' => 'admins',
     ],
 
@@ -74,7 +74,6 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
-            'table' => 'admins',
         ],
     ],
 

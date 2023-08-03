@@ -4,30 +4,33 @@
         <div class="col-12">
             <h2 class="mt-4">Thêm mới danh mục</h2>
         </div>
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-6 offset-md-3 main-agileits">
             {{-- @include("includes/errors") --}}
-            <form action="{{ route('admin.products.upsert', ['id' => $data->id]) }}" method="POST">
+            <form action="{{ route('admin.products.upsert') }}" method="POST">
                 @csrf
-                <input name="prd_cover" type="file" label="Ảnh sản phẩm" value="{{$data->prd_cover}}" />
+                <x-app-input name="prd_cover" type="file" label="Ảnh sản phẩm" />
 
-                <input name="prd_names" label="Tên sản phẩm" value="{{$data->prd_names}}" />
+                <x-app-input name="prd_names" type="text" label="Tên sản phẩm" />
 
-                <x-app-select name="ctg_code" label="Danh mục sản phẩm" model="Category" displayMember="ctg_names" valueMember="ctg_code" selected="{{$data->ctg_code}}" />
+                <x-app-select name="ctg_code" label="Danh mục sản phẩm" model="Category" displayMember="ctg_names" valueMember="ctg_code"/>
 
-                <input name="prd_heft" label="Trọng lượng sản phẩm" value="{{$data->prd_heft}}" />
+                <div style="display:flex">
+                    <x-app-input name="prd_heft" type="number" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" label="Trọng lượng sản phẩm" />
+                    <span class="ms-3 mt-3">G, Kg, L, Ml, Pc</span>
+                </div>
 
-                <x-app-select name="id" label="Đơn vị trọng lượng" model="Cental" displayMember="centals_name" valueMember="id" selected="{{$data->id}}" />
+                <x-app-select name="id" label="Đơn vị trọng lượng" model="Cental" displayMember="centals_name" valueMember="id"/>
 
-                <input name="prd_original_price" type="number" label="Giá sản phẩm" value="{{$data->prd_original_price}}" />
+                <x-app-input name="prd_original_price" type="number" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" label="Giá niên yết sản phẩm" />
 
-                <input name="prd_selling_price" type="number" label="Giá sản phẩm" value="{{$data->prd_selling_price}}" />
+                <x-app-input name="prd_selling_price" type="number" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" label="Giá sell sản phẩm" />
 
-                <input name="prd_details" label="Mô tả sản phẩm" value="{{$data->prd_details}}" />
+                <x-app-input name="prd_details" label="Mô tả sản phẩm" />
 
-
+                <x-app-input name="quantity_prd" type="number" label="Số lượng sản phẩm" />
 
                 <div class="mt-3 mb-3">
-                    <input type="submit" class="btn btn-outline-success" value="Cập nhật sản phẩm"/>
+                    <button type="submit" class="btn btn-outline-success">Thêm sản phẩm</button>
                 </div>
 
             </form>

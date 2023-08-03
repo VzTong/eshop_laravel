@@ -6,8 +6,8 @@
                     the readable</h3>
                 <div class="search-form">
                     <form action="#" method="post">
-                        <input type="text" placeholder="Search..." name="Search...">
-                        <input type="submit" value=" ">
+                        <input type="text" class="input" placeholder="Search..." name="Search...">
+                        <input type="submit" class="input" value=" ">
                     </form>
                 </div>
             </div>

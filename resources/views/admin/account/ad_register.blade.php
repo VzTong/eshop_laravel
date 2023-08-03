@@ -42,45 +42,37 @@
 
                     <div class="key">
                         <i class="fa-solid fa-user-large"></i>
-                        <input type="text" name="name" autocomplete="off" value="Your username"
-                            onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your username';}"
-                            required="">
+                        <x-app-input type="text" name="name" autocomplete="off" value="Your username" required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-solid fa-mobile-screen"></i>
-                        <input type="text" name="ad_phone" autocomplete="off" value="Your phone number"
-                            onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Your phone number';}" required="">
+                        <x-app-input type="text" name="ad_phone" autocomplete="off" value="Your phone number"
+                            required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" name="ad_email" autocomplete="off"
-                            value="Your email address; Eg: example@mail.com" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Your email address; Eg: example@mail.com';}"
-                            required="">
+                        <x-app-input type="text" name="ad_email" autocomplete="off"
+                            value="Your email address; Eg: example@mail.com" required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-solid fa-unlock"></i>
-                        <input type="password" name="password" autocomplete="off" value="Password"
-                            onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"
-                            required="">
+                        <x-app-input type="password" name="password" autocomplete="off" value="Password" required="" />
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="key">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="cf_password" autocomplete="off" value="Cf_password"
-                            onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Cf_password';}"
-                            required="">
+                        <x-app-input type="password" name="cf_password" autocomplete="off" value="Cf_password"
+                            required="" />
                         <div class="clearfix"></div>
                     </div>
-                    <input type="submit" value="Submit">
+                    <button type="submit" class="input">Submit</button>
                 </form>
             </div>
 

@@ -1,7 +1,7 @@
 <x-admin-layout title="List of products">
 
     <h1>List of products</h1>
-    <a class="btn btn-primary my-2" href="{{ route('admin.products.index') }}">
+    <a class="btn btn-primary my-2" href="{{ route('admin.products.create') }}">
         <i class="bi bi-plus"></i>Create products</a>
 
     <div class="row">
@@ -14,11 +14,10 @@
                         <th>Product's name</th>
                         <th>Product cover</th>
                         <th>Product heft</th>
-                        <th>Product cental</th>
                         <th>Original price</th>
                         <th>Selling price</th>
                         <th>The detail</th>
-                        <th>The status</th>
+                        <th>Quantity product</th>
                         <th>Date created</th>
                         <th></th>
                     </tr>
@@ -27,15 +26,14 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->prd_code }}</td>
+                            <td>{{ $item->categories->ctg_names ?? "" }}</td>
                             <td>{{ $item->prd_names }}</td>
                             <td><img src="{{ $item->prd_cover }}" width="100" height="100" alt="Ảnh sản phẩm"></td>
-                            <td>{{ $item->prd_heft }}</td>
-                            <td>{{ $item->centals->centals_name ?? "" }}</td>
-                            <td>{{ number_format($item->prd_original_price) }}</td>
+                            <td>{{ $item->prd_heft }} {{ $item->centals->centals_name ?? "" }}</td>
+                            <td>{{ $item->prd_original_price }}</td>
                             <td>{{ number_format($item->prd_selling_price) }}</td>
                             <td>{{ $item->prd_details }}</td>
-                            <td>{{ $item->prd_status }}</td>
+                            <td>{{ $item->quantity_prd }}</td>
 
                             {{-- <td>{{ $item->created_at->format('d-M-Y') }}</td>
                             <td>{{ $item->updated_at->format('d-M-Y') }}</td> --}}
