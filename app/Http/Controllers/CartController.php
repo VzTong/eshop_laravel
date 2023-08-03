@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,5 +21,7 @@ class CartController extends Controller
         $data['qty'] = $quantity_prd;
         $data['name'] = $prd_info->prd_names;
         $data['price'] = $prd_info->prd_selling_price;
+
+        $cart = new Cart($data);
     }
 }

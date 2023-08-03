@@ -76,12 +76,12 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     <button class="btn btn-danger my-cart-btn my-cart-a"
                                                         type="submit"><i class="fa-regular fa-heart"></i></button>
-                                                </form>
+                                                </form> --}}
 
                                                 <button class="btn btn-danger my-cart-btn my-cart-b"
                                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
@@ -135,12 +135,12 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     <button class="btn btn-danger my-cart-btn my-cart-a"
                                                         type="submit"><i class="fa-regular fa-heart"></i></button>
-                                                </form>
+                                                </form> --}}
                                                 <button class="btn btn-danger my-cart-btn my-cart-b"
                                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                                     data-summary="summary {{ $item->id }}"
@@ -192,12 +192,12 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     <button class="btn btn-danger my-cart-btn my-cart-a"
                                                         type="submit"><i class="fa-regular fa-heart"></i></button>
-                                                </form>
+                                                </form> --}}
                                                 <button class="btn btn-danger my-cart-btn my-cart-b"
                                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                                     data-summary="summary {{ $item->id }}"
@@ -250,12 +250,12 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <form action="{{ route('favorites', ['id' => $item->id]) }}"
+                                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     <button class="btn btn-danger my-cart-btn my-cart-a"
                                                         type="submit"><i class="fa-regular fa-heart"></i></button>
-                                                </form>
+                                                </form> --}}
                                                 <button class="btn btn-danger my-cart-btn my-cart-b"
                                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                                     data-summary="summary {{ $item->id }}"
@@ -400,11 +400,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
-                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
                                             class="fa-regular fa-heart"></i></button>
-                                </form>
+                                </form> --}}
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
@@ -448,11 +448,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
-                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
                                             class="fa-regular fa-heart"></i></button>
-                                </form>
+                                </form> --}}
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
@@ -496,11 +496,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
-                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit"><i
                                             class="fa-regular fa-heart"></i></button>
-                                </form>
+                                </form> --}}
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"
@@ -547,11 +547,11 @@
                             <h4 class="quick">Quick Overview:</h4>
                             <p class="quick_desc">{{ $item->prd_details }}</p>
                             <div class="add-to">
-                                <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
+                                {{-- <form action="{{ route('favorites', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger my-cart-btn my-cart-btn1" type="submit">
                                         <i class="fa-regular fa-heart"></i></button>
-                                </form>
+                                </form> --}}
                                 <button class="btn btn-danger my-cart-btn my-cart-btn1 "
                                     data-id="{{ $item->id }}" data-name="{{ $item->prd_names }}"
                                     data-summary="summary {{ $item->id }}" data-price="1.50" data-quantity="1"

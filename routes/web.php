@@ -70,8 +70,8 @@ Route::prefix('/products')->name("products.")->group(function(){
 });
 
 // favorites - trang dl sản phẩm yêu thích người dùng
-Route::get('/favorites', [FavoritesController::class, "favorites"])->middleware('auth')->name("favorites");
-Route::post('/{id}favorites', [FavoritesController::class, "favorites"])->name("favorites");
+// Route::get('/favorites', [FavoritesController::class, "favorites"])->middleware('auth')->name("favorites");
+// Route::post('/{id}favorites', [FavoritesController::class, "favorites"])->name("favorites");
 
 // cart - trang giỏ hàng người dùng
 Route::prefix('/cart')->name("cart.")->group(function(){
