@@ -59,7 +59,7 @@ class AdminAccountController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard("webAd")->logout();
         return redirect()->to('/admin');
     }
 

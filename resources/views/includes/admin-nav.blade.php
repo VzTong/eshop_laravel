@@ -20,11 +20,11 @@
                     <a class="nav-link" href="{{ route("admin.centals.index") }}">Centals</a>
                 </li> --}}
 
-                @if(Auth::check())
+                @if(Auth::guard("webAd")->check())
                     <li class="nav-item">
                         <a class="nav-link text-info" href="">
                             <i class="fa-solid fa-user-tie"></i>
-                            {{ Auth::user()->name }}
+                            {{ Auth::guard("webAd")->user()->name }}
                         </a>
                     </li>
                     <li class="nav-item">
